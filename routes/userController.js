@@ -1,10 +1,13 @@
 const r = require("express").Router();
-
+const conn = require('./db');
 
 // User
 r.get("/user/:id", (req, res) => {
-    res.send(`USER ID: ${req.params.id}`);
+    conn.query(`SELECT * from USERS where user_id=${req.params.id}`, (err, result) => {
+        res.json(result);
+    });
 });
+
 
 // Create user
 r.post("/user/create", (req, res) => {
