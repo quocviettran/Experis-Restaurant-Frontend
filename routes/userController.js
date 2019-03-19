@@ -5,8 +5,9 @@ const conn = require('./db');
 r.get("/user/:id", (req, res) => {
     conn.query(`SELECT * from USERS where user_id=${req.params.id}`, (err, result) => {
         res.json(result);
-      });
+    });
 });
+
 
 // Create user
 r.post("/user/create", (req, res) => {
