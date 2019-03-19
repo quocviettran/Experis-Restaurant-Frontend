@@ -2,10 +2,9 @@
   "name": "no.noroff",
   "version": "1.0.0",
   "description": "Experis Restaurant System\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D Review System",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon index.js"
-    "start": "nodemon app.js",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
