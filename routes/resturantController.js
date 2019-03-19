@@ -1,6 +1,5 @@
 const r = require("express").Router();
 
-
 // Resturant
 r.get("/resturant/:id", (req, res) => {
     res.send(`USER ID: ${req.params.id}`);
