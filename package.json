@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Experis Restaurant System\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D Review System",
   "main": "app.js",
+  "private": true,
   "scripts": {
     "start": "node app.js"
   },
