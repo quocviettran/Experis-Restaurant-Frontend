@@ -1,14 +1,19 @@
 const r = require("express").Router();
+const conn = require("./db");
 
 
 // Review
-r.get("/review/resturant/:id", (req, res) => {
-    res.send(`Checked reviews for Resturant id: ${req.params.id}`);
+r.get("/review/restaurant/:id", (req, res) => {
+    conn.query(`SELECT * from review where review_id=${req.params.id}`, (err, result) => {
+        res.json(result);
+    });
 });
 
-// Get latest review
+// Get 5 latest review
 r.get("/review/latest", (req, res) => {
-    res.send("latest review...");
+    conn.query(`SELECT * from review where review_id=${req.params.id} LIMIT 5`,(err, result) => {
+        res.json(result.rows);
+      });
 });
 
 // review update
