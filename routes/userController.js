@@ -8,7 +8,7 @@ r.get("/user/:id", (req, res) => {
         if(err){
             res.send(err);
         }else{
-            res.json(result.rows);
+            res.json(result.rows[0]);
         }
         
     });
