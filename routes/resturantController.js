@@ -22,13 +22,26 @@ r.get("/restaurant/", (req, res) => {
 
 // CREATE restaurant
 r.post("/restaurant/create", (req, res) => {
+  console.log(req);
   const now = new Date().toISOString();
   conn.query(
-    `INSERT INTO restaurant (user_id, name, address, category, description, created_at, updated_at, active)`
-      + `VALUES (${user_id}, '${req.body.name}','${req.body.address}','${req.body.category}',
-      '${req.body.description}', '${now}', '${now}', ${req.body.active});`,
+    `INSERT INTO restaurant (user_id, name, address, category, description, created_at, updated_at, active)
+      VALUES (
+         ${req.body.user_id}, 
+        '${req.body.name}',
+        '${req.body.address}',
+        '${req.body.category}',
+        '${req.body.description}', 
+        '${now}', 
+        '${now}', 
+        1)`,
       (err,result)=>{
-          res.end('Successfully created restaurant');
+        console.log(result);
+        if (err) {
+          res.send(err);
+        } else {
+          res.send('Successfully created restaurant');
+        }
       });
 });
 
@@ -38,10 +51,10 @@ r.post("/restaurant/update", (req, res) => {
   conn.query(
     `UPDATE restaurant 
       SET restaurant_id = ${req.body.restaurant_id},
-      SET name = '${req.body.name}', 
-      SET description = '${req.body.description}',
-      SET category = '${req.body.category}',
-      SET updated_at = '${now}',
+          name = '${req.body.name}', 
+          description = '${req.body.description}',
+          category = '${req.body.category}',
+          updated_at = '${now}'
       WHERE user_id = ${req.body.user_id}`,
   (err,result) =>{
     if (err) { 
