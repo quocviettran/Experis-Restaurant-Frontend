@@ -22,19 +22,19 @@ r.get("/restaurant/", (req, res) => {
 
 // CREATE restaurant
 r.post("/restaurant/create", (req, res) => {
-  console.log(req);
+  console.log(req.body);
   const now = new Date().toISOString();
   conn.query(
     `INSERT INTO restaurant (user_id, name, address, category, description, created_at, updated_at, active)
-      VALUES (
-         ${req.body.user_id}, 
-        '${req.body.name}',
-        '${req.body.address}',
-        '${req.body.category}',
-        '${req.body.description}', 
-        '${now}', 
-        '${now}', 
-        1)`,
+    VALUES(
+      ${req.body.user_id}, 
+      '${req.body.name}', 
+      '${req.body.address}', 
+      '${req.body.category}', 
+      '${req.body.description}', 
+      '${now}', 
+      '${now}',
+      1)`,
       (err,result)=>{
         console.log(result);
         if (err) {
