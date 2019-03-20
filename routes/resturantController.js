@@ -1,17 +1,23 @@
 const r = require("express").Router();
+const conn = require("./db");
 
 // Resturant
-r.get("/resturant/:id", (req, res) => {
-    res.send(`USER ID: ${req.params.id}`);
+r.get("/restaurant/:id", (req, res) => {
+    conn.query(
+      `SELECT * from restaurant where restaurant_id=${req.params.id}`,
+      (err, result) => {
+        res.json(result);
+      }
+    );
 });
 
-// Create Resturant
-r.post("/resturant/create", (req, res) => {
+// Create Restaurant
+r.post("/restaurant/create", (req, res) => {
     res.send("Created...");
 });
 
 // Update Resturant
-r.post("/resturant/update", (req, res) => {
+r.post("/restaurant/update", (req, res) => {
     res.send("Updated...");
 });
 

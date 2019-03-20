@@ -1,7 +1,9 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require('path');
 // Set up the express app
 const app = express();
+app.use(bodyParser.json());
 
 // Get all todos
 const user = require("./routes/userController");
