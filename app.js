@@ -17,7 +17,4 @@ app.use("/", resturant);
 
 
 // Run server
-const PORT = 8080;
-app.listen(PORT, () => {
-    console.log(`server running on port ${ process.env.PORT || PORT}`)
-});
+app.listen(process.env.PORT || 8080);
