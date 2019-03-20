@@ -4,7 +4,7 @@
   "description": "Experis Restaurant System\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D Review System",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
