@@ -11,6 +11,15 @@ r.get("/restaurant/:id", (req, res) => {
       });
 });
 
+// SHOW Resturant with userid
+r.get("/restaurant/user/:id", (req, res) => {
+  conn.query(
+    `SELECT * FROM restaurant WHERE user_id=${req.params.id}`, 
+  (err, result) => {
+      res.json(result.rows);
+    });
+});
+
 // SHOW ALL Restaurants
 r.get("/restaurant/", (req, res) => {
   conn.query(
