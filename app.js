@@ -17,13 +17,11 @@ app.use(function(req, res, next) {
 const user = require("./routes/userController");
 const review = require("./routes/reviewController");
 const resturant = require("./routes/resturantController");
-const login = require("./routes/loginController");
 
 // Apply routes
 app.use("/", user);
 app.use("/", review);
 app.use("/", resturant);
-app.use("/", login);
 
 
 // Run server
