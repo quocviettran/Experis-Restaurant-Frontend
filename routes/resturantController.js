@@ -7,7 +7,7 @@ r.get("/restaurant/:id", (req, res) => {
     conn.query(
       `SELECT * FROM restaurant WHERE restaurant_id=${req.params.id}`, 
     (err, result) => {
-        res.json(result);
+        res.json(result.rows);
       });
 });
 
@@ -16,7 +16,7 @@ r.get("/restaurant/", (req, res) => {
   conn.query(
     `SELECT * FROM restaurant`, 
     (err, result) => {
-      res.json(result);
+      res.json(result.rows);
   });
 });
 
