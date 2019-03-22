@@ -27,6 +27,19 @@ r.get("/review/latest", (req, res) => {
       });
 });
 
+// Returns all reviews
+r.get("/review", (req, res) => {
+    const conn = require("./db");
+    conn.query(`SELECT * from review`,
+    (err, result) => {
+        if(err) {
+            res.send(err);
+        } else {
+            res.json(result.rows);
+        }
+      });
+});
+
 /*
 * Update review
 * Can only update rating and review text
